@@ -8,7 +8,7 @@ spring:
     properties:
       hibernate.event.merge.entity_copy_observer: allow
   datasource:
-    url: jdbc:mysql://mysql:3306/dmhdatabase?createDatabaseIfNotExist=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/booking_db
     #url: jdbc:mysql://127.0.0.1:3306/accounts-service-db
     username: root
     password: admin
