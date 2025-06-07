@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: transactions-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate.event.merge.entity_copy_observer: allow
+  datasource:
+    url: jdbc:mysql://localhost:3306/booking_db
+    #url: jdbc:mysql://127.0.0.1:3306/transactions-service-db
+    username: root
+    password: admin
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+  info:
+    env:
+      enabled: true
+info:
+  app:
+    name: transactions-service
+    description: microservicio de administracion y registro de transacciones entre usuarios (remoto)
+    version: 1.0.0
+
+eureka:
+  instance:
+    hostname: localhost
+    statusPageUrlPath: http://localhost:8083/actuator/info
+    healthCheckUrlPath: http://localhost:8083/actuator/health
+  client:
+    serviceUrl:
+      defaultZone: http://elocalhost:8761/eureka/
+
+server:
+  port: 8083
