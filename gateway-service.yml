@@ -33,13 +33,13 @@ spring:
             maxAge: 3600
       routes:
         - id: users-service
-          uri: http://users-service:8081
-          #uri: lb://users-service
+          #uri: http://users-service:8081
+          uri: lb://users-service
           predicates:
             - Path=/user/**        
         - id: accounts-service
-          uri: http://accounts-service:8082
-          #uri: lb://accounts-service
+          #uri: http://accounts-service:8082
+          uri: lb://accounts-service
           predicates:
             - Path=/account/**
 
