@@ -33,10 +33,10 @@ spring:
 
 dh:
   keycloak:
-    realm: dh-money-users
+    realm: wallet-realm
     serverUrl: http://localhost:8080
-    clientId: api-dh-money
-    clientSecret: 2bgKXNvbhtpbEUux2QmNfUev6D5hzqA4
+    clientId: wallet-cli
+    clientSecret: TfcakIC2Z9ieEv9mjdSrKz7EF2oGdLXq
     tokenEndpoint: ${dh.keycloak.serverUrl}/realms/${dh.keycloak.realm}/protocol/openid-connect/token
     
 management:
