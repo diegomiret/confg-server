@@ -7,9 +7,9 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888/
-      #discovery:
-        #serviceId: config-server
-        #enabled: true
+      discovery:
+        serviceId: config-server
+        enabled: true
     gateway:
       globalcors:
         corsConfigurations:
