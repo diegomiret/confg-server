@@ -1,0 +1,67 @@
+spring:
+  application:
+    name: users-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate.event.merge.entity_copy_observer: allow
+    datasource:
+      url: jdbc:mysql://localhost:3306/booking_db
+      username: root
+      password: admin
+      driverClassName: com.mysql.cj.jdbc.Driver
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: wallet-cli
+            client-secret: TfcakIC2Z9ieEv9mjdSrKz7EF2oGdLXq
+            scope: openid
+            realm: wallet-realm
+            serverUrl: http://localhost:8080
+        provider:
+          keycloak:
+            issuer-uri: ${dh.keycloak.serverUrl}/realms/${dh.keycloak.realm}
+        resourceserver:
+          jwt:
+            issuer-uri: ${dh.keycloak.serverUrl}/realms/${dh.keycloak.realm}
+            jwk-set-uri: ${dh.keycloak.serverUrl}/realms/${dh.keycloak.realm}/protocol/openid-connect/certs
+
+dh:
+  keycloak:
+    realm: wallet-realm
+    serverUrl: http://localhost:8080
+    clientId: wallet-cli
+    clientSecret: TfcakIC2Z9ieEv9mjdSrKz7EF2oGdLXq
+    tokenEndpoint: ${dh.keycloak.serverUrl}/realms/${dh.keycloak.realm}/protocol/openid-connect/token
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+  info:
+    env:
+      enabled: true
+info:
+  app:
+    name: users-service
+    description: microservicio de registro y logueo (desde config server)
+    version: 1.0.0
+
+eureka:
+  instance:
+    hostname: localhost
+    statusPageUrlPath: http://localhost:8081/actuator/info
+    healthCheckUrlPath: http://localhost:8081/actuator/health
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8081
+
+
