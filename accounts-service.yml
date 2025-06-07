@@ -18,11 +18,11 @@ spring:
       client:
         registration:
           keycloak:
-            client-id: ${dh.keycloak.clientId}
-            client-secret: ${dh.keycloak.clientSecret}
+            client-id: wallet-cli
+            client-secret: KE0Z44upfnJpPn5c4fn0vla8RNeZNHk9
             scope: openid
-            realm: ${dh.keycloak.realm}
-            serverUrl: ${dh.keycloak.serverUrl}
+            realm: wallet-realm
+            serverUrl: http://localhost:8080
         provider:
           keycloak:
             issuer-uri: ${dh.keycloak.serverUrl}/realms/${dh.keycloak.realm}
