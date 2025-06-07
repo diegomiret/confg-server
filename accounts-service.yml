@@ -34,7 +34,7 @@ spring:
 dh:
   keycloak:
     realm: dh-money-users
-    serverUrl: http://keycloak:8080
+    serverUrl: http://localhost:8080
     clientId: api-dh-money
     clientSecret: 2bgKXNvbhtpbEUux2QmNfUev6D5hzqA4
     tokenEndpoint: ${dh.keycloak.serverUrl}/realms/${dh.keycloak.realm}/protocol/openid-connect/token
@@ -60,7 +60,7 @@ eureka:
     healthCheckUrlPath: http://localhost:8082/actuator/health
   client:
     serviceUrl:
-      defaultZone: http://eureka-server:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
 
 server:
   port: 8082
