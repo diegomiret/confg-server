@@ -19,7 +19,7 @@ spring:
         registration:
           keycloak:
             client-id: wallet-cli
-            client-secret: hKydHEhLmOraRH2o0yBPywzvA2NpWZQn
+            client-secret: TfcakIC2Z9ieEv9mjdSrKz7EF2oGdLXq
             scope: openid
             realm: wallet-realm
             serverUrl: http://localhost:8080
