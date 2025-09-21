@@ -37,7 +37,7 @@ spring:
           #uri: http://users-service:8081
           uri: lb://users-service
           predicates:
-            - Path=/users/*/accounts
+            - Path=/register
         - id: accounts-service
           #uri: http://accounts-service:8082
           uri: lb://accounts-service
