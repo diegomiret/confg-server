@@ -42,7 +42,7 @@ spring:
           #uri: http://accounts-service:8082
           uri: lb://accounts-service
           predicates:
-            - Path=/users/**/accounts, /accounts/**
+            - Path=/users/*/accounts, /accounts/**
 
 
 management:
