@@ -37,9 +37,12 @@ spring:
           #uri: http://users-service:8081
           uri: lb://users-service
           predicates:
-            - Path=/login
             - Path=/register
+            - Path=/login
             - Path=/users/**
+          filters:
+            - RewritePath=/register,/user/register
+            - RewritePath=/login,/user/login
         - id: accounts-service
           #uri: http://accounts-service:8082
           uri: lb://accounts-service
