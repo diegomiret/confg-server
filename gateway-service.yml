@@ -37,14 +37,12 @@ spring:
           #uri: http://users-service:8081
           uri: lb://users-service
           predicates:
-            - Path=/register
-            - Path=/users  # o /users/** si solo quieres todo lo que no sea cuentas
+            - Path=/register, /users
         - id: accounts-service
           #uri: http://accounts-service:8082
           uri: lb://accounts-service
           predicates:
-            - Path=/users/*/accounts
-            - Path=/users/*/accounts/**   # para rutas adicionales si es necesario
+            - Path=/users/*/accounts, /users/*/accounts/**
 
 
 management:
